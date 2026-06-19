@@ -29,3 +29,7 @@ node_modules
 # OS
 .DS_Store
 Thumbs.db
+
+# Documentation (not part of build)
+docs/
+.vercelignore
