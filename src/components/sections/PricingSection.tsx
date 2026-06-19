@@ -156,21 +156,30 @@ export function PricingSection() {
               </button>
             </motion.div>
 
-            {/* Super Oferta Card com Imagem */}
+            {/* Super Oferta Card com Imagem e Animações */}
             <motion.div
               initial={{ opacity: 0, y: 16 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.3 }}
-              className="mt-6 w-full"
+              className="mt-6 w-full relative"
             >
-              <Image
-                src="/images/card.webp"
-                alt="Ainda dá tempo de levar a melhor opção"
-                width={400}
-                height={120}
-                className="w-full h-auto object-contain"
-                priority={false}
-              />
+              {/* Setas animadas acima */}
+              <div className="absolute -top-8 left-0 right-0 flex justify-between px-8 text-3xl font-bold pointer-events-none">
+                <span className="arrow-bounce-down text-red-500">↓</span>
+                <span className="arrow-bounce-down text-red-500" style={{ animationDelay: '0.3s' }}>↓</span>
+              </div>
+
+              {/* Card com pulse */}
+              <div className="super-offer-pulse rounded-lg overflow-hidden">
+                <Image
+                  src="/images/card.webp"
+                  alt="Ainda dá tempo de levar a melhor opção"
+                  width={400}
+                  height={120}
+                  className="w-full h-auto object-contain"
+                  priority={false}
+                />
+              </div>
             </motion.div>
           </motion.div>
 

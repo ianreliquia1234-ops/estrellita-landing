@@ -131,9 +131,39 @@
   }
 }
 
+@keyframes superOfferPulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 4px 12px rgba(255, 68, 68, 0.15);
+  }
+  50% {
+    transform: scale(1.015);
+    box-shadow: 0 6px 16px rgba(255, 68, 68, 0.25);
+  }
+}
+
+@keyframes arrowBounceDown {
+  0%, 100% {
+    transform: translateY(0px);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translateY(6px);
+    opacity: 1;
+  }
+}
+
 @layer utilities {
   .font-display {
     font-family: var(--font-poppins), system-ui, sans-serif;
+  }
+
+  .super-offer-pulse {
+    animation: superOfferPulse 2.5s ease-in-out infinite;
+  }
+
+  .arrow-bounce-down {
+    animation: arrowBounceDown 1.5s ease-in-out infinite;
   }
 
   @media (prefers-reduced-motion: reduce) {
