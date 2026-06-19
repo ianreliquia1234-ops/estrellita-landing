@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion'
 import { cn } from '@/lib/utils'
 
-interface ButtonProps {
+export interface ButtonProps {
   children: React.ReactNode
   href?: string
   onClick?: () => void
