@@ -29,7 +29,7 @@ const bonuses = [
 ]
 
 export function PricingSection() {
-  const ref = useRef<HTMLSection>(null)
+  const ref = useRef<HTMLElement>(null)
   const inView = useInView(ref, { once: true, margin: '-80px' })
 
   return (
