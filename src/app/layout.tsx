@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Script from 'next/script'
 import { Poppins, Inter, Archivo_Black } from 'next/font/google'
 import { MetaPixelInit } from '@/components/MetaPixelInit'
 import './globals.css'
@@ -40,6 +41,16 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="pt-BR" className={`${poppins.variable} ${inter.variable} ${archivoBlack.variable}`}>
+      <head>
+        <Script
+          src="https://cdn.utmify.com.br/scripts/utms/latest.js"
+          data-utmify-prevent-xcod-sck
+          data-utmify-prevent-subids
+          async
+          defer
+          strategy="afterInteractive"
+        />
+      </head>
       <body>
         <MetaPixelInit />
         {children}
