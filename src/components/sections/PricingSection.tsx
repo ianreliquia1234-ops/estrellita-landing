@@ -156,36 +156,21 @@ export function PricingSection() {
               </button>
             </motion.div>
 
-            {/* Super Oferta Card */}
+            {/* Super Oferta Card com Imagem */}
             <motion.div
               initial={{ opacity: 0, y: 16 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.3 }}
-              className="mt-6 px-4 py-5 rounded-lg text-center relative"
-              style={{
-                background: 'linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%)',
-                border: '2px solid #FF4444',
-                position: 'relative',
-              }}
+              className="mt-6 w-full"
             >
-              {/* Setas vermelhas acima */}
-              <div className="absolute -top-6 left-0 right-0 flex justify-between px-4 text-2xl font-bold text-red-500">
-                <span>↓</span>
-                <span>↓</span>
-              </div>
-
-              <p className="font-display font-black text-sm uppercase tracking-widest mb-2" style={{ color: '#FF4444' }}>
-                Ainda dá tempo!
-              </p>
-              <h4 className="font-display font-bold text-base mb-3" style={{ color: '#FFFFFF' }}>
-                Leve a melhor opção
-              </h4>
-              <p className="text-sm font-medium mb-0" style={{ color: '#FFD700' }}>
-                Por só <span className="font-black text-base">R$ 9,90 a mais</span>
-              </p>
-              <p className="text-xs mt-2" style={{ color: '#CCCCCC' }}>
-                Inclui todos os bônus + 4X mais aprendizado
-              </p>
+              <Image
+                src="/images/card.webp"
+                alt="Ainda dá tempo de levar a melhor opção"
+                width={400}
+                height={120}
+                className="w-full h-auto object-contain"
+                priority={false}
+              />
             </motion.div>
           </motion.div>
 
