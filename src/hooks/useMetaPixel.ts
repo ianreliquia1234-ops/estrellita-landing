@@ -3,7 +3,11 @@ import { v4 as uuidv4 } from 'uuid'
 
 declare global {
   interface Window {
-    fbq: (command: string, name: string, data?: Record<string, any>) => void
+    fbq: {
+      (command: string, name: string, data?: Record<string, any>): void
+      q?: any[]
+      l?: number
+    }
   }
 }
 
