@@ -20,7 +20,7 @@ export function HeroImagesGrid() {
           <div
             key={page.title}
             className="flex-shrink-0 rounded-xl overflow-hidden"
-            style={{ width: 150, boxShadow: '0 4px 16px rgba(0,0,0,0.12)' }}
+            style={{ width: 'clamp(140px, 35vw, 150px)', boxShadow: '0 4px 16px rgba(0,0,0,0.12)' }}
           >
             <div className="px-3 pt-3 pb-2 text-white" style={{ background: page.bg }}>
               <div className="text-2xl mb-1">{page.emoji}</div>

@@ -41,10 +41,10 @@ export function PricingSection() {
       content_name: productId === '7DsnOZ' ? 'Pacote Básico' : 'Pacote Completo',
       content_type: 'product',
     })
-    // Pequeno delay para garantir que o evento foi disparado
+    // Delay de 500ms para garantir que o evento foi completamente processado pela Meta
     setTimeout(() => {
       window.location.href = `https://pay.lowify.com.br/checkout?product_id=${productId}`
-    }, 100)
+    }, 500)
   }
 
   return (
