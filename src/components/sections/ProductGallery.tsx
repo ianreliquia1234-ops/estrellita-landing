@@ -105,6 +105,8 @@ function PageCard({ title, bg, emoji, lines, imageSrc }: PageCardProps) {
           fill
           className="object-cover object-top"
           sizes="220px"
+          loading="lazy"
+          quality={75}
         />
       </div>
     )

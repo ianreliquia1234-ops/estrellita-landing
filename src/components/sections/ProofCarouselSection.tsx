@@ -89,6 +89,9 @@ export function ProofCarouselSection() {
                     alt={`Prova social ${currentIndex + 1}`}
                     fill
                     className="object-contain"
+                    loading="lazy"
+                    quality={75}
+                    priority={false}
                   />
                 </div>
               </motion.div>

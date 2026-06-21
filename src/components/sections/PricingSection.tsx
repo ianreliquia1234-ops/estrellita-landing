@@ -5,6 +5,7 @@ import Image from 'next/image'
 import { motion, useInView } from 'framer-motion'
 import { Button } from '@/components/ui/Button'
 import { pulseVariants, glowVariants } from '@/lib/animations'
+import { useMetaPixel } from '@/hooks/useMetaPixel'
 
 const basicFeatures = [
   '50 canções em espanhol',
@@ -31,6 +32,20 @@ const bonuses = [
 export function PricingSection() {
   const ref = useRef<HTMLElement>(null)
   const inView = useInView(ref, { once: true, margin: '-80px' })
+  const { trackEvent } = useMetaPixel()
+
+  const handleCheckout = async (productId: string, value: number) => {
+    await trackEvent('InitiateCheckout', {
+      value,
+      currency: 'BRL',
+      content_name: productId === '7DsnOZ' ? 'Pacote Básico' : 'Pacote Completo',
+      content_type: 'product',
+    })
+    // Pequeno delay para garantir que o evento foi disparado
+    setTimeout(() => {
+      window.location.href = `https://pay.lowify.com.br/checkout?product_id=${productId}`
+    }, 100)
+  }
 
   return (
     <section
@@ -135,7 +150,7 @@ export function PricingSection() {
               transition={{ duration: 0.2 }}
             >
               <button
-                onClick={() => window.location.href = 'https://pay.lowify.com.br/checkout?product_id=7DsnOZ'}
+                onClick={() => handleCheckout('7DsnOZ', 10.00)}
                 className="w-full px-8 py-4 rounded-xl font-display font-black text-base transition-all duration-200 cursor-pointer border-2"
                 style={{
                   borderColor: '#22B8A0',
@@ -274,7 +289,7 @@ export function PricingSection() {
             <motion.div variants={pulseVariants} animate="animate" className="mb-4">
               <Button
                 fullWidth
-                onClick={() => window.location.href = 'https://pay.lowify.com.br/checkout?product_id=z3bUGM'}
+                onClick={() => handleCheckout('z3bUGM', 19.90)}
               >
                 🎵 Quero o Pacote Completo
               </Button>
