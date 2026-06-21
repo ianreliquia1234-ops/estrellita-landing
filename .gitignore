@@ -14,7 +14,8 @@ node_modules
 /build
 
 # Environment variables
-.env
+# .env is committed (contains only NEXT_PUBLIC_* safe variables)
+# .env.local is NOT committed (contains sensitive data like tokens)
 .env.local
 .env.*.local
 
