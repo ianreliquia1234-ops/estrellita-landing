@@ -41,9 +41,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="pt-BR" className={`${poppins.variable} ${inter.variable} ${archivoBlack.variable}`}>
       <head>
-        {/* Meta Pixel - Setup function (must be before fbevents.js loads) */}
+        {/* Meta Pixel - Official implementation for Next.js */}
+        {/* Step 1: Create fbq function that queues calls */}
         <Script
-          id="meta-pixel-init"
+          id="meta-pixel"
           strategy="beforeInteractive"
           dangerouslySetInnerHTML={{
             __html: `!function(f,b,e,v,n,t,s)
@@ -53,26 +54,18 @@ if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
 n.queue=[];t=b.createElement(e);t.async=!0;
 t.src=v;s=b.getElementsByTagName(e)[0];
 s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');`,
-          }}
-        />
-
-        {/* Meta Pixel - Initialize and track PageView */}
-        <Script
-          id="meta-pixel-track"
-          strategy="beforeInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `fbq('init', '${process.env.NEXT_PUBLIC_META_PIXEL_ID}');
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '${process.env.NEXT_PUBLIC_META_PIXEL_ID}');
 fbq('track', 'PageView');`,
           }}
         />
 
-        {/* Meta Pixel - NoScript fallback */}
+        {/* Meta Pixel - NoScript fallback for no-JS users */}
         <noscript dangerouslySetInnerHTML={{
           __html: `<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=${process.env.NEXT_PUBLIC_META_PIXEL_ID}&ev=PageView&noscript=1" />`,
         }} />
 
-        {/* UTMify - loads after Pixel is initialized */}
+        {/* UTMify - loads after Pixel */}
         <Script
           src="https://cdn.utmify.com.br/scripts/utms/latest.js"
           data-utmify-prevent-xcod-sck
