@@ -117,6 +117,8 @@ export function PricingSection() {
                 alt="Pacote Básico"
                 fill
                 className="object-contain"
+                quality={70}
+                sizes="300px"
               />
             </div>
 

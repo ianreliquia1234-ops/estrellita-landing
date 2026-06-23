@@ -90,8 +90,9 @@ export function ProofCarouselSection() {
                     fill
                     className="object-contain"
                     loading="lazy"
-                    quality={75}
+                    quality={65}
                     priority={false}
+                    unoptimized={false}
                   />
                 </div>
               </motion.div>

@@ -98,10 +98,7 @@ export function Hero() {
           className="mb-5 sm:mb-6 mx-auto"
           style={{ maxWidth: 'clamp(280px, 90vw, 480px)' }}
         >
-          <motion.div
-            animate={{ y: [0, -8, 0] }}
-            transition={{ duration: 3, repeat: Infinity, repeatType: 'loop' }}
-          >
+          <div>
             <Image
               src="/images/mockup-50-cancoes-espanhol.png"
               alt="50 Canções Infantis em Espanhol"
@@ -109,8 +106,10 @@ export function Hero() {
               height={600}
               className="w-full h-auto object-contain drop-shadow-lg"
               priority
+              quality={85}
+              sizes="(max-width: 640px) 90vw, (max-width: 1200px) 70vw, 480px"
             />
-          </motion.div>
+          </div>
         </motion.div>
 
         {/* Bullets — Prova social compacta */}

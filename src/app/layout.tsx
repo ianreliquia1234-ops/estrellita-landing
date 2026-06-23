@@ -6,15 +6,17 @@ import './globals.css'
 const poppins = Poppins({
   subsets: ['latin'],
   variable: '--font-poppins',
-  weight: ['400', '500', '600', '700', '800', '900'],
+  weight: ['600', '700', '800', '900'],
   display: 'swap',
+  preload: true,
 })
 
 const inter = Inter({
   subsets: ['latin'],
   variable: '--font-inter',
-  weight: ['400', '500', '600'],
+  weight: ['400', '500'],
   display: 'swap',
+  preload: true,
 })
 
 const archivoBlack = Archivo_Black({
@@ -41,6 +43,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="pt-BR" className={`${poppins.variable} ${inter.variable} ${archivoBlack.variable}`}>
       <head>
+        {/* Resource hints for critical domains */}
+        <link rel="preconnect" href="https://connect.facebook.net" />
+        <link rel="preconnect" href="https://graph.facebook.com" />
+        <link rel="preconnect" href="https://pay.lowify.com.br" />
+        <link rel="dns-prefetch" href="https://cdn.utmify.com.br" />
+
         {/* Meta Pixel - Official IIFE with environment variable properly set */}
         <Script
           id="meta-pixel"
