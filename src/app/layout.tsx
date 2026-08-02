@@ -43,6 +43,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="pt-BR" className={`${poppins.variable} ${inter.variable} ${archivoBlack.variable}`}>
       <head>
+        {/* LCP Image Preload — Crítico para performance */}
+        <link
+          rel="preload"
+          as="image"
+          href="/images/mockup-50-cancoes-espanhol.png"
+          imageSrcSet="/_next/image?url=%2Fimages%2Fmockup-50-cancoes-espanhol.png&w=280&q=85 280w, /_next/image?url=%2Fimages%2Fmockup-50-cancoes-espanhol.png&w=384&q=85 384w, /_next/image?url=%2Fimages%2Fmockup-50-cancoes-espanhol.png&w=480&q=85 480w"
+          imageSizes="(max-width: 640px) 90vw, (max-width: 1200px) 70vw, 480px"
+        />
+
         {/* Resource hints for critical domains */}
         <link rel="preconnect" href="https://connect.facebook.net" />
         <link rel="preconnect" href="https://graph.facebook.com" />

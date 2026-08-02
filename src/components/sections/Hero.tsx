@@ -89,12 +89,12 @@ export function Hero() {
           </motion.span>
         </motion.h1>
 
-        {/* Mockup — Maior e dominante */}
+        {/* Mockup — Maior e dominante (SEM delay para LCP crítico) */}
         <motion.div
           variants={scaleInVariants}
-          initial="hidden"
+          initial={{ opacity: 1, scale: 1 }}
           animate="visible"
-          custom={0.3}
+          custom={0}
           className="mb-5 sm:mb-6 mx-auto"
           style={{ maxWidth: 'clamp(280px, 90vw, 480px)' }}
         >
